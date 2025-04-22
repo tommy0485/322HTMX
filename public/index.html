@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Input Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+  <div class="border-blue-600 border-2 w-96 mx-auto my-5 content-center p-6 bg-white rounded-md shadow-md">
+    <form hx-get="http://localhost:5001/firstproject8847/us-central1/test" hx-target="#userList" hx-swap="beforebegin">
+      <div class="mb-4">
+        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+      <div class="mb-4">
+        <label for="major" class="block text-gray-700 text-sm font-bold mb-2">Major</label>
+        <input type="text" id="major" name="major" placeholder="Enter your major" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+      <div class="mb-6">
+        <label for="quote" class="block text-gray-700 text-sm font-bold mb-2">Quote</label>
+        <input type="text" id="quote" name="quote" placeholder="Enter your favorite quote" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+    </form>
+  </div>
+
+  <div class="container mx-auto mt-8">
+    <div class="users" id="userList">
+      <!-- New entries will be prepended here -->
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</body>
+</html>
