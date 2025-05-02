@@ -20,6 +20,35 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/",
+        "function": "app"
+      },
+      {
+        "source": "/playlists",
+        "function": "playlists"
+      },
+      {
+        "source": "/history",
+        "function": "history"
+      },
+      {
+        "source": "/newartists",
+        "function": "newartists"
+      },
+      {
+        "source": "/settings",
+        "function": "settings"
+      },
+      {
+        "source": "/test",
+        "function": "test"
+      }
     ]
+  },
+  "functions": {
+    "source": "functions"
   }
 }

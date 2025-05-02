@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Playlists
+    link(rel="stylesheet" href="/style.css")
+  body
+    header
+      img.logo(src="/logo.png" alt="Logo")
+      h1.IonTitle Playlists
+      button.logout-button Logout
+    nav.links
+      a.link(href="/" hx-target="body") Home
+      a.link(href="/history" hx-target="body") History
+      a.link(href="/newartists" hx-target="body") Discover Something New
+      a.link(href="/settings" hx-target="body") Settings
+    main.content-center
+      .playlists-row
+        .playlist
+          h2.subtitle Contemporary
+          .image-spot
+            img(src="/playlist1.png" alt="Playlist 1")
+        .playlist
+          h2.subtitle Jazz
+          .image-spot
+            img(src="/playlist2.png" alt="Playlist 2")

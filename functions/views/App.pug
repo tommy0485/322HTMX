@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Your Music Service
+    link(rel='stylesheet', href='/style.css')
+  body
+    #root
+      .ion-page
+        header.header-collapse-none(role='banner')
+          .toolbar-title-default.in-toolbar
+            img.logo(src='/logo.png' alt='Logo')
+            h1.IonTitle.title-default Welcome to Your Music Service
+            button.logout-button.button.button-solid.in-toolbar.ion-activatable.ion-focusable(slot='end') Logout
+        .ion-padding.content-ltr(role='main' style='--offset-top: 0px; --offset-bottom: 0px;')
+          .links
+            a.link(href='/playlists') Playlists
+            a.link(href='/history') History
+            a.link(href='/newartists') Discover Something New
+            a.link(href='/settings') Settings
+          .content-center
+            h2.subtitle Featured Artist
+            .image-spot
+              img(src='/recommended-artist.png' alt='Recommended Artist')

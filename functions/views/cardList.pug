@@ -1,2 +1,7 @@
-each datum in data
-    include card
+if data && data.length > 0
+  each genre in data
+    .card
+      h3.genre= genre
+      p.timestamp= new Date().toLocaleString()
+else
+  p.error No genres available at the moment.

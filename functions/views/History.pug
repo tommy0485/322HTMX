@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    title History
+    link(rel="stylesheet" href="/style.css")
+    script(src="https://unpkg.com/htmx.org@1.9.10")
+  body
+    header
+      img.logo(src="logo.png" alt="Logo")
+      h1.IonTitle History
+      button.logout-button Logout
+    nav.links
+      a.link(href="/" hx-target="body") Home
+      a.link(href="/playlists" hx-target="body") Playlists
+      a.link(href="/newartists" hx-target="body") Discover Something New
+      a.link(href="/settings" hx-target="body") Settings
+    main.content-center
+      #genre-container(
+        hx-get="/test"
+        hx-trigger="load"
+        hx-swap="innerHTML"
+        hx-indicator="#loading"
+      )
+      #loading(style="display: none;") Loading genres...
+      #error(style="display: none; color: red;") Error loading genres
+      style.
+        .card {
+          background: #fff;
+          border-radius: 8px;
+          padding: 20px;
+          margin: 10px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .genre {
+          color: #333;
+          margin-bottom: 10px;
+        }
+        .timestamp {
+          color: #666;
+          font-size: 0.9em;
+        }
+        #genre-container {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding: 20px;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        #loading {
+          text-align: center;
+          padding: 20px;
+          color: #666;
+        }
