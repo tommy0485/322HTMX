@@ -3,55 +3,52 @@ body {
     color: white !important; /* Ensure text color remains black */
     margin: 0;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
   }
   
   .App-header {
     background-color: #00008B; /* Dark blue background */
     color: white; /* White text */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 20px;
+    width: 200px;
+    position: fixed;
+    left: 0;
+    top: 0;
   }
   
   .IonTitle {
     text-align: center;
     font-size: 2em; /* Larger font size */
     color: white !important; /* Ensure title text color remains white */
-    flex-grow: 1;
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 0;
   }
   
   .logo {
     height: 120px; /* Increase the height to make the logo twice as big */
-    margin-right: 10px; /* Space between the logo and the title */
+    margin-bottom: 10px; /* Space between the logo and the title */
   }
   
-  .ion-padding {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align items to the top */
-    align-items: center;
-    min-height: 100vh; /* Ensure content is scrollable */
-    overflow-y: auto; /* Ensure content is scrollable */
-    color: white !important; /* Ensure content text color remains black */
-  }
-  
-  .content-center {
+  .title-container {
+    width: 100%;
     text-align: center;
-    margin-top: 20px; /* Add margin to separate from links */
-    color: white !important; /* Ensure subtitle text color remains black */
+    margin-top: 20px;
   }
   
-  .playlists-row {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between the playlists */
-  }
-  
-  .playlist {
+  .main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 300px;
+    width: 100%;
+    padding-left: 200px;
   }
   
   .subtitle {
@@ -80,7 +77,7 @@ body {
     flex-direction: column;
     align-items: flex-start; /* Left-align the links */
     margin-top: 20px;
-    padding-left: 20px; /* Ensure the links are aligned to the left */
+    padding-left: 0;
     color: white !important; /* Ensure links text color remains black */
   }
   
@@ -100,7 +97,7 @@ body {
   }
   
   .logout-button {
-    margin-right: 10px; /* Add some margin to the right */
+    margin: 10px 0;
     color: white; /* Ensure logout button text color remains white */
     background: none;
     border: none;

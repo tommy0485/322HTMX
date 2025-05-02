@@ -2,22 +2,89 @@ doctype html
 html
   head
     title Your Music Service
-    link(rel='stylesheet', href='/style.css')
+    link(rel="stylesheet" href="/style.css")
+    style.
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .App-header {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 250px;
+        height: 100vh;
+        background-color: #1a1a1a;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+      }
+      .logo {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .logout-button {
+        margin: 20px 0 0 20px;
+        align-self: flex-start;
+        position: relative;
+        z-index: 1;
+      }
+      .links {
+        margin: 20px 0 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 230px;
+        position: relative;
+        z-index: 1;
+      }
+      .link {
+        margin: 10px 0;
+        align-self: flex-start;
+        white-space: nowrap;
+        width: 100%;
+      }
+      .title-container {
+        position: fixed;
+        top: 0;
+        left: 250px;
+        right: 0;
+        height: 60px;
+        background-color: #1a1a1a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+      .main-content {
+        margin-left: 250px;
+        padding: 80px 20px 20px;
+      }
+      .featured-artist {
+        margin-top: 20px;
+      }
   body
-    #root
-      .ion-page
-        header.header-collapse-none(role='banner')
-          .toolbar-title-default.in-toolbar
-            img.logo(src='/logo.png' alt='Logo')
-            h1.IonTitle.title-default Welcome to Your Music Service
-            button.logout-button.button.button-solid.in-toolbar.ion-activatable.ion-focusable(slot='end') Logout
-        .ion-padding.content-ltr(role='main' style='--offset-top: 0px; --offset-bottom: 0px;')
-          .links
-            a.link(href='/playlists') Playlists
-            a.link(href='/history') History
-            a.link(href='/newartists') Discover Something New
-            a.link(href='/settings') Settings
-          .content-center
-            h2.subtitle Featured Artist
-            .image-spot
-              img(src='/recommended-artist.png' alt='Recommended Artist')
+    header.App-header
+      img.logo(src="logo.png" alt="Logo")
+      button.logout-button Logout
+      nav.links
+        a.link(href="/" hx-target="body") Home
+        a.link(href="/playlists" hx-target="body") Playlists
+        a.link(href="/history" hx-target="body") History
+        a.link(href="/newartists" hx-target="body") Discover&nbsp;Something&nbsp;New
+        a.link(href="/settings" hx-target="body") Settings
+    .title-container
+      h1.IonTitle Welcome to Your Music Service
+    main.main-content
+      .featured-artist
+        h2.subtitle Featured Artist
+        .image-spot
+          img(src="recommended-artist.png" alt="Recommended Artist")

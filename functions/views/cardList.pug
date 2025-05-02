@@ -2,6 +2,6 @@ if data && data.length > 0
   each genre in data
     .card
       h3.genre= genre
-      p.timestamp= new Date().toLocaleString()
+      p.timestamp= new Date().toLocaleString('en-US', { timeZone: 'America/Denver' })
 else
   p.error No genres available at the moment.
