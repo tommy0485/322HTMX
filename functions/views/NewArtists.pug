@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title New Artists
+    link(rel="stylesheet" href="/style.css")
+    style.
+      .playlist h2.subtitle {
+        text-align: center;
+      }
+  body
+    header
+      img.logo(src="logo.png" alt="Logo")
+      h1.IonTitle New Artists
+      button.logout-button Logout
+    nav.links
+      a.link(href="/" hx-target="body") Home
+      a.link(href="/playlists" hx-target="body") Playlists
+      a.link(href="/history" hx-target="body") History
+      a.link(href="/settings" hx-target="body") Settings
+    main.content-center
+      .playlists-row
+        .playlist
+          h2.subtitle New Artist 1
+          .image-spot
+            img(src="/newArtist1.png" alt="New Artist 1")
+        .playlist
+          h2.subtitle New Artist 2
+          .image-spot
+            img(src="/newArtist2.png" alt="New Artist 2")

@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Settings
+    link(rel="stylesheet" href="/style.css")
+    style.
+      .playlist h2.subtitle {
+        text-align: center;
+      }
+  body
+    header
+      img.logo(src="logo.png" alt="Logo")
+      h1.IonTitle Settings
+      button.logout-button Logout
+    nav.links
+      a.link(href="/" hx-target="body") Home
+      a.link(href="/playlists" hx-target="body") Playlists
+      a.link(href="/history" hx-target="body") History
+      a.link(href="/newartists" hx-target="body") Discover Something New
+    main.content-center
+      .playlist
+        h2.subtitle Notification Preferences
+        .checkbox-row
+          .checkbox-item
+            label.large-label Email
+            input(type="checkbox" name="email")
+          .checkbox-item
+            label.large-label Text
+            input(type="checkbox" name="text")

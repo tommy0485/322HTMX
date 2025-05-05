@@ -7,11 +7,9 @@
         "node_modules",
         ".git",
         "firebase-debug.log",
-        "firebase-debug.*.log"
-      ],
-      "runtime": "nodejs18",
-      "memory": "256MB",
-      "timeoutSeconds": 60
+        "firebase-debug.*.log",
+        "*.local"
+      ]
     }
   ],
   "hosting": {
@@ -20,6 +18,36 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/",
+        "function": "app"
+      },
+      {
+        "source": "/app",
+        "function": "app"
+      },
+      {
+        "source": "/playlists",
+        "function": "playlists"
+      },
+      {
+        "source": "/history",
+        "function": "history"
+      },
+      {
+        "source": "/newartists",
+        "function": "newartists"
+      },
+      {
+        "source": "/settings",
+        "function": "settings"
+      },
+      {
+        "source": "/test",
+        "function": "test"
+      }
     ]
   }
 }
