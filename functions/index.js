@@ -1,10 +1,13 @@
 console.log("Initializing Firebase Functions...");
 
 const { onRequest } = require("firebase-functions/v2/https");
+const { onSchedule } = require("firebase-functions/v2/scheduler");
+const { randomUUID } = require("crypto");
 const logger = require("firebase-functions/logger");
 const pug = require("pug");
 const axios = require("axios");
 const path = require("path");
+const admin = require("firebase-admin");
 const cors = require("cors")({
   origin: true, // Allow all origins
   allowedHeaders: [
@@ -13,9 +16,50 @@ const cors = require("cors")({
   ],
 });
 
+// Initialize Firebase Admin
+admin.initializeApp();
+const db = admin.firestore();
+
+// Database reference
+const docRef = db.collection("facts").doc("wVxqRwCoIVoDsMqWGqHeHe");
+
 // Log to confirm initialization
 logger.info("Cloud Function initialized successfully.");
 console.log("Firebase Functions initialized successfully.");
+
+// Scheduled function to update facts
+exports.scheduledRun = onSchedule("every day 20:00", async (event) => {
+  try {
+    const response = await axios.get("https://binaryjazz.us/wp-json/genrenator/v1/genre/");
+    const apiResponse = response.data;
+    await docRef.set({
+      current: apiResponse,
+    });
+    logger.log("Facts updated successfully!");
+  } catch (error) {
+    console.error(error);
+    logger.error(error, {structuredData: true});
+  }
+});
+
+// Flash briefing endpoint
+exports.flashBriefing = onRequest((request, response) => {
+  console.log("Flash Briefing Requested!");
+
+  const flashBriefingData = [
+    {
+      "uid": randomUUID(),
+      "updateDate": new Date().toISOString(),
+      "titleText": "What kind of test will I do today?",
+      "mainText": "The quick brown fox jumped.",
+      "streamUrl": null,
+      "redirectionUrl": "https://example.com",
+    },
+  ];
+
+  response.set("Content-Type", "application/json");
+  response.json(flashBriefingData);
+});
 
 // Function to render App.pug
 exports.renderApp = onRequest((request, response) => {
