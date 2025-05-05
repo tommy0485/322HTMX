@@ -5,72 +5,155 @@ html
     link(rel="stylesheet" href="/style.css")
     style.
       body {
+        background-color: #00008B !important; /* Change background color to dark blue */
+        color: white !important; /* Ensure text color remains black */
         margin: 0;
-        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
       }
+  
       .App-header {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 250px;
-        height: 100vh;
-        background-color: #1a1a1a;
+        background-color: #00008B; /* Dark blue background */
+        color: white; /* White text */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0;
-      }
-      .logo {
-        width: 100%;
-        height: auto;
-        margin: 0;
-        padding: 0;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-      .logout-button {
-        margin: 20px 0 0 20px;
-        align-self: flex-start;
-        position: relative;
-        z-index: 1;
-      }
-      .links {
-        margin: 20px 0 0 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 230px;
-        position: relative;
-        z-index: 1;
-      }
-      .link {
-        margin: 10px 0;
-        align-self: flex-start;
-        white-space: nowrap;
-        width: 100%;
-      }
-      .title-container {
+        padding: 20px;
+        width: 200px;
         position: fixed;
+        left: 0;
         top: 0;
-        left: 250px;
+      }
+  
+      .IonTitle {
+        text-align: center;
+        font-size: 2em; /* Larger font size */
+        color: white !important; /* Ensure title text color remains white */
+        position: fixed;
+        top: 20px;
+        left: 0;
         right: 0;
-        height: 60px;
-        background-color: #1a1a1a;
+        margin: 0;
+      }
+  
+      .logo {
+        height: 120px; /* Increase the height to make the logo twice as big */
+        margin-bottom: 10px; /* Space between the logo and the title */
+      }
+  
+      .title-container {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+      }
+  
+      .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 300px;
+        width: 100%;
+        padding-left: 200px;
+      }
+  
+      .subtitle {
+        font-size: 1.5em; /* Subtitle font size */
+        margin-bottom: 20px;
+        color: white !important; /* Ensure subtitle text color remains black */
+      }
+  
+      .image-spot {
+        width: 400px; /* Increase width to make the image twice as big */
+        height: 400px; /* Increase height to make the image twice as big */
+        background-color: #f0f0f0; /* Placeholder background color */
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0;
-        padding: 0;
+        margin: 0 auto 20px auto; /* Center the image and add margin below */
       }
-      .main-content {
-        margin-left: 250px;
-        padding: 80px 20px 20px;
+  
+      .image-spot img {
+        max-width: 100%;
+        max-height: 100%;
       }
-      .featured-artist {
+  
+      .links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Left-align the links */
         margin-top: 20px;
+        padding-left: 0;
+        color: white !important; /* Ensure links text color remains black */
       }
+  
+      .link {
+        background: none;
+        border: none;
+        color: white !important; /* Ensure link color remains black */
+        text-decoration: none;
+        font-size: 1.5em; /* Increase font size */
+        margin-bottom: 10px;
+        cursor: pointer;
+        display: block; /* Ensure the links are displayed as block elements */
+      }
+  
+      .link:hover {
+        text-decoration: underline;
+      }
+  
+      .logout-button {
+        margin: 10px 0;
+        color: white; /* Ensure logout button text color remains white */
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+  
+      .large-label {
+        font-size: 1.5em; /* Larger font size for labels */
+      }
+  
+      .m-1 {
+        margin: 0.25rem; /* Margin for card elements */
+      }
+  
+      .rounded-lg {
+        border-radius: 0.5rem; /* Rounded corners for card elements */
+      }
+  
+      .shadow-lg {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Shadow for card elements */
+      }
+  
+      .p-2 {
+        padding: 0.5rem; /* Padding for card elements */
+      }
+  
+      .text-gray-800 {
+        color: #2d3748; /* Dark gray text color */
+      }
+  
+      .text-gray-500 {
+        color: #a0aec0; /* Light gray text color */
+      }
+  
+      .font-bold {
+        font-weight: bold; /* Bold text */
+      }
+  
+      .font-normal {
+        font-weight: normal; /* Normal text */
+      }
+  
+      .mb-2 {
+        margin-bottom: 0.5rem; /* Margin below elements */
+      }
+  
+      .text-2xl {
+        font-size: 1.5rem; /* Large text size */
+      }  
+
   body
     header.App-header
       img.logo(src="logo.png" alt="Logo")
