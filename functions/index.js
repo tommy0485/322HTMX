@@ -4,8 +4,9 @@ const { onRequest } = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const pug = require("pug");
 const axios = require("axios");
+const path = require("path");
 const cors = require("cors")({
-  origin: 'https://fnof-stack.web.app/',
+  origin: true, // Allow all origins
   allowedHeaders: [
     'Content-Type', 'HX-Current-Url', 'HX-Boosted', 'HX-History-Restore-Request',
     'HX-Trigger', 'HX-Request', 'HX-Target', 'HX-Trigger-Name', 'HX-Prompt'
@@ -20,7 +21,7 @@ console.log("Firebase Functions initialized successfully.");
 exports.renderApp = onRequest((request, response) => {
   console.log("renderApp function triggered");
   try {
-    const templatePath = 'views/App.pug';
+    const templatePath = path.join(__dirname, 'views/App.pug');
     console.log(`Attempting to compile template at: ${templatePath}`);
     const template = pug.compileFile(templatePath);
     const markup = template();
@@ -37,7 +38,7 @@ exports.renderApp = onRequest((request, response) => {
 });
 
 exports.playlists = onRequest((request, response) => {
-  const template = pug.compileFile('views/Playlists.pug');
+  const template = pug.compileFile(path.join(__dirname, 'views/Playlists.pug'));
   const markup = template();
 
   response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -45,7 +46,7 @@ exports.playlists = onRequest((request, response) => {
 });
 
 exports.app = onRequest((request, response) => {
-  const template = pug.compileFile('views/App.pug');
+  const template = pug.compileFile(path.join(__dirname, 'views/App.pug'));
   const markup = template();
 
   response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -53,21 +54,21 @@ exports.app = onRequest((request, response) => {
 });
 
 exports.history = onRequest((request, response) => {
-  const template = pug.compileFile('views/History.pug');
+  const template = pug.compileFile(path.join(__dirname, 'views/History.pug'));
   const markup = template();
   response.writeHead(200, { 'Content-Type': 'text/html' });
   response.end(markup);
 });
 
 exports.newartists = onRequest((request, response) => {
-  const template = pug.compileFile('views/NewArtists.pug');
+  const template = pug.compileFile(path.join(__dirname, 'views/NewArtists.pug'));
   const markup = template();
   response.writeHead(200, { 'Content-Type': 'text/html' });
   response.end(markup);
 });
 
 exports.settings = onRequest((request, response) => {
-  const template = pug.compileFile('views/Settings.pug');
+  const template = pug.compileFile(path.join(__dirname, 'views/Settings.pug'));
   const markup = template();
   response.writeHead(200, { 'Content-Type': 'text/html' });
   response.end(markup);
@@ -87,7 +88,7 @@ exports.test = onRequest(async (request, response) => {
       }
       
       console.log("Compiling template...");
-      const template = pug.compileFile("views/cardList.pug");
+      const template = pug.compileFile(path.join(__dirname, "views/cardList.pug"));
       console.log("Rendering template with data:", genres);
       const markup = template({ data: genres });
       console.log("Sending response...");

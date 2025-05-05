@@ -7,11 +7,9 @@
         "node_modules",
         ".git",
         "firebase-debug.log",
-        "firebase-debug.*.log"
-      ],
-      "runtime": "nodejs18",
-      "memory": "256MB",
-      "timeoutSeconds": 60
+        "firebase-debug.*.log",
+        "*.local"
+      ]
     }
   ],
   "hosting": {
@@ -24,6 +22,10 @@
     "rewrites": [
       {
         "source": "/",
+        "function": "app"
+      },
+      {
+        "source": "/app",
         "function": "app"
       },
       {
@@ -47,8 +49,5 @@
         "function": "test"
       }
     ]
-  },
-  "functions": {
-    "source": "functions"
   }
 }
